@@ -21,7 +21,10 @@ class ToolBar extends Component {
         return (
             <div>
                   <Navbar dark>
-                    <NavbarBrand href="/" style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
+                    {this.props.loggedIn ?                     
+                        <NavbarBrand style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
+                        : <NavbarBrand href="/" style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
+                    }
                     <NavbarToggler onClick={this.toggleNav} className="mr-2" />
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
@@ -39,6 +42,12 @@ class ToolBar extends Component {
                                     <NavLink href="/register">Register</NavLink>
                                 </NavItem>
                             }
+                            {
+                                this.props.loggedIn ? 
+                                <NavItem>
+                                    <NavLink href="/">Log Out</NavLink>
+                                </NavItem> : null
+                            }
                         </Nav>
                     </Collapse>
                 </Navbar>
@@ -49,7 +58,8 @@ class ToolBar extends Component {
 
 ToolBar.propTypes = {
     login: PropTypes.bool,
-    register: PropTypes.bool
+    register: PropTypes.bool,
+    loggedIn: PropTypes.bool
 }
 
 export default ToolBar;

@@ -6,7 +6,7 @@ import '../landingpage.css';
 
 const RegisterOption = () => {
         return (
-            <div>
+            <div class="landingPage">  
                 <ToolBar login={true} register={false} />
                 <div className="patientdoctor">
                     <Container style={{width: "60vw"}}>

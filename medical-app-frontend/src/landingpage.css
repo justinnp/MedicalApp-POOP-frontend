@@ -1,6 +1,6 @@
-body {
+.landingPage {
 	width: 100wh;
-	height: 90vh;
+	height: 100vh;
 	color: #fff;
 	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
 	background-size: 400% 400%;
@@ -45,8 +45,7 @@ body {
 	}
 }
 
-h1,
-h6 {
+.logoTitle {
 	font-family: 'Open Sans';
 	font-weight: 300;
 	text-align: center;
@@ -66,4 +65,9 @@ h6 {
   	align-items: center;
   	width: 100%;
   	height: 80vh;
+}
+
+.home{
+	background-color: #DCDCDD;
+	height: 100vh;
 }

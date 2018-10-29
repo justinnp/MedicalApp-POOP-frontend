@@ -15,6 +15,7 @@ class Register extends Component {
             password: '',
             doctor: false,
         }
+        this.getInfo = this.getInfo.bind(this);
     }
 
     getInfo(e, stateField){
@@ -29,7 +30,7 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
+            <div class="landingPage">  
                 <ToolBar login={true} register={false}/>
                 <Container style={{width:'40vw'}} className="mt-5">
                     <Form>
