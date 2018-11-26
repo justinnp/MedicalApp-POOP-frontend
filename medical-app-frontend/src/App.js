@@ -5,6 +5,8 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import RegisterOption from './Components/RegisterOption';
 import Home from './Components/Home';
+import ViewPatients from './Components/ViewPatients';
+
 
 const App = () => {
     return (
@@ -16,6 +18,7 @@ const App = () => {
           <Route path="/register_doctor" render={(props) => <Register isPatient={false} />} />
           <Route path="/register_patient" render={(props) => <Register isPatient={true} />} />
           <Route path="/home" component={Home} />
+          <Route path="/view_patients" component={ViewPatients} />
         </Switch>
       </BrowserRouter>
     );
