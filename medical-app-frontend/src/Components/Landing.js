@@ -5,9 +5,9 @@ import '../landingpage.css';
 
 const Landing = () => {
     return (
-        <div class="landingPage">
+        <div className="landingPage">
             <ToolBar login={false} register={false}/>
-            <h1 class="logoTitle" style={{fontFamily: "Sans-Serif"}}>Patient Connect <span><IoIosPeople size={56}/></span></h1>
+            <h1 className="logoTitle" style={{fontFamily: "Sans-Serif"}}>Patient Connect <span><IoIosPeople size={56}/></span></h1>
         </div>
     )
 }
