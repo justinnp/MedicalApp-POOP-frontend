@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Card, CardTitle, CardText, Progress,Button,Row} from 'reactstrap';
+import {Link} from 'react-router-dom';
 import '../Patient.css';
 
 function percentageColor(newColor){
@@ -31,25 +32,31 @@ const Patient = (props) => {
         .catch(error => console.error('Error:', error));
     }
 
+    /*
+    <div className="ml-auto">
+    <Link to={{ pathname: patientEnd, state:{patientId: props.id, firstName: props.fname, lastName: props.lname}}}>
+        <Button outline color="primary" size="sm" >
+            View Prescriptions
+        </Button>
+    </Link>
+</div>
+*/
+var patientEnd=`/Home/${props.id}`
     return(
-        <Card body className="mx-2 my-3">
-            <CardTitle>
-                <div className="d-flex">
-                    <div class="blink_me">{props.fname}</div> &nbsp;
-                    <div class="blink_me_again">{props.lname}</div>
-                    <div className="ml-auto">
-                        <a href={url} style={{textDecoration:"none", color:"white"}}>
-                            <Button color="primary" size="sm">
-                                View Info
-                            </Button>
-                        </a>
+            <Card body className="mx-2 my-3">
+                <CardTitle>
+                    <div className="d-flex">
+                    <Link to = {patientEnd}>
+                        <div class="blink_me">{props.fname}</div> &nbsp;
+                        <div class="blink_me_again">{props.lname}</div>
+                        </Link>
+                        <div className="ml-auto">
+                            <Button outline color="warning" onClick={() => deletePatient()}>Delete</Button>
+                        </div>
                     </div>
-                    <div className="ml-auto">
-                        <Button outline color="warning" onClick={() => deletePatient()}>Delete</Button>
-                    </div>
-                </div>
-            </CardTitle>
-        </Card>
+                </CardTitle>
+            </Card>
+       
     );
 }
 

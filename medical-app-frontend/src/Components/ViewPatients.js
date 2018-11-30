@@ -15,7 +15,7 @@ class ViewPatients extends Component {
         }
     }
 
-
+/*
     componentWillMount(){
         fetch(url)
         .then(response => response.json())
@@ -39,9 +39,13 @@ class ViewPatients extends Component {
             console.log('Error fetching and parsing data.', error);
         });
     }
+*/
 
     componentDidMount() {
-      setInterval(() => {
+        this.grabData();
+    }
+
+    grabData(){
         fetch(url)
         .then(response => response.json())
         .then(responseData =>{
@@ -56,22 +60,14 @@ class ViewPatients extends Component {
                 tmpPatients.push(patient);
             }
 
-            var old = this.state.patients
-            // for(key in old) {
-            //   if(old[key].current !== tmpPatients[key].current) {
-            //     tmpGarages[key].didUpdate = true;
-            //   }
-            // }
-
             this.setState({
                 patients: tmpPatients
             })
-
+            console.log(this.state.patients);
         })
         .catch(error => {
             console.log('Error fetching and parsing data.', error);
         });
-      }, 10000);
     }
 
     showAddAlert(){
@@ -116,6 +112,7 @@ class ViewPatients extends Component {
             }
         })
         .catch(error => console.error('Error:', error));
+        
     }
 
     getInfo = (e, stateField) => {

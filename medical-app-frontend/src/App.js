@@ -6,6 +6,8 @@ import Register from './Components/Register';
 import RegisterOption from './Components/RegisterOption';
 import Home from './Components/Home';
 import ViewPatients from './Components/ViewPatients';
+import ViewPrescriptions from './Components/ViewPrescriptions';
+import AddPrescription from './Components/AddPrescription';
 
 
 const App = () => {
@@ -17,8 +19,10 @@ const App = () => {
           <Route path="/register" component={RegisterOption} />
           <Route path="/register_doctor" render={(props) => <Register isPatient={false} />} />
           <Route path="/register_patient" render={(props) => <Register isPatient={true} />} />
-          <Route path="/home" component={Home} />
-          <Route path="/view_patients" component={ViewPatients} />
+          <Route path="/home/:id" component={Home} />
+          <Route exact path="/view_patients/" component={ViewPatients} />
+          <Route path="/view_prescriptions/:id" component={ViewPrescriptions} />
+          <Route path="/add_prescription/:id" component={AddPrescription} />
         </Switch>
       </BrowserRouter>
     );

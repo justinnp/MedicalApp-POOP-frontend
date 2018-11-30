@@ -48,6 +48,24 @@ class ToolBar extends Component {
                                     <NavLink href="/">Log Out</NavLink>
                                 </NavItem> : null
                             }
+                            {
+                                this.props.viewPrescription ?
+                                <NavItem>
+                                    <NavLink href={"/add_prescription/"+this.props.id}>Add Prescription</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.addPrescription ?
+                                <NavItem>
+                                    <NavLink href={"/view_prescriptions/"+this.props.id}>View Prescriptions</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.home ?
+                                <NavItem>
+                                    <NavLink href={"/home/"+this.props.id}>Home</NavLink>
+                                </NavItem> : null
+                            }
                         </Nav>
                     </Collapse>
                 </Navbar>

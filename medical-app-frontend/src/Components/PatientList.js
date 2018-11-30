@@ -7,14 +7,14 @@ const PatientList = (props) => {
     return(
         <Fragment>
             {props.patients.map((patient, index) =>
-                <Col key={index} sm="4">
-                    <Patient
-                        username={patient.username}
-                        id={patient.id}
-                        fname={patient.fname}
-                        lname={patient.lname}
-                    />
-                </Col>
+                    <Col key={index} sm="5">
+                        <Patient
+                            username={patient.username}
+                            id={patient.id}
+                            fname={patient.fname}
+                            lname={patient.lname}
+                        />
+                    </Col>
             )}
         </Fragment>
     );
