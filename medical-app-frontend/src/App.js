@@ -8,6 +8,8 @@ import Home from './Components/Home';
 import ViewPatients from './Components/ViewPatients';
 import ViewPrescriptions from './Components/ViewPrescriptions';
 import AddPrescription from './Components/AddPrescription';
+import ViewMedicalHistory from './Components/ViewMedicalHistory';
+
 
 
 const App = () => {
@@ -23,6 +25,7 @@ const App = () => {
           <Route exact path="/view_patients/" component={ViewPatients} />
           <Route path="/view_prescriptions/:id" component={ViewPrescriptions} />
           <Route path="/add_prescription/:id" component={AddPrescription} />
+          <Route path="/view_medicalhistory/:id" component={ViewMedicalHistory} />
         </Switch>
       </BrowserRouter>
     );

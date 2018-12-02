@@ -23,13 +23,13 @@ class Home extends Component {
                 <Container className="mt-5">
                 <Row>
                     <Col sm={4} className="mb-4">
-                        <a href="/">
+                        <Link to={"/view_medicalhistory/"+this.state.id}>
                             <Card body>
                                 <IoIosHeart size={42} color='#D22C34' style={{margin: 'auto'}}/>
                                 <CardTitle className="mt-3">Medical History</CardTitle>
 
                             </Card>
-                        </a>
+                        </Link>
                     </Col>
                     <Col sm={4} className="mb-4">
                         <Link to={"/view_prescriptions/"+this.state.id}>
