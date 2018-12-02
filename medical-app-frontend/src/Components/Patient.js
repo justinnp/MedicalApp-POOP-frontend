@@ -22,12 +22,7 @@ const Patient = (props) => {
         })
         .then(response => response.json())
         .then(responseData => {
-          if(responseData.success){
-            this.setState({
-              successDelete: true
-            })
-            window.location.reload();
-          }
+          window.location.reload();
         })
         .catch(error => console.error('Error:', error));
     }
@@ -56,7 +51,7 @@ var patientEnd=`/Home/${props.id}`
                     </div>
                 </CardTitle>
             </Card>
-       
+
     );
 }
 

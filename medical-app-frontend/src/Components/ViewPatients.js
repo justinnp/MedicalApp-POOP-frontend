@@ -105,14 +105,9 @@ class ViewPatients extends Component {
         })
         .then(response => response.json())
         .then(responseData => {
-            if(responseData.success){
-              this.setState({
-                successAdd: true
-              })
-            }
+          window.location.reload();
         })
         .catch(error => console.error('Error:', error));
-        
     }
 
     getInfo = (e, stateField) => {
@@ -130,6 +125,7 @@ class ViewPatients extends Component {
                 </Row>
                 <Form className="w-50 mx-auto mt-5">
                   <FormGroup className="my-5">
+                      <h1> <center>Add New Patient </center></h1>
                       <InputGroup>
                           <Input placeholder="First Name" onChange={(e) => this.getInfo(e, "addFirst")}/>
                           <Input placeholder="Last Name" onChange={(e) => this.getInfo(e, "addLast")}/>
