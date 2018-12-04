@@ -53,7 +53,7 @@ class ViewPrescriptions extends Component {
     componentDidMount(){
         let id = this.props.match.params.id;
         console.log(id);
-        fetch(url+'/id'+id)
+        fetch(url+'/'+id)
             .then(response => response.json())
             .then(responseData =>{
                 console.log(responseData);
