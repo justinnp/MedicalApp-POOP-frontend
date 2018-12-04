@@ -85,6 +85,30 @@ updateMedicalHistory(){
             <ToolBar home={true} register={true} login={true} addPrescription={true} id={this.state.id}/>
             <Form className="w-50 mx-auto mt-5">
                 <FormGroup className="my-5">
+                      <InputGroup>
+                            <Input placeholder="Sex" onChange={(e) => this.getInfo(e, "sex")}/>
+                            <Input placeholder="Height" onChange={(e) => this.getInfo(e, "height")}/>
+                            <Input placeholder="Weight" onChange={(e) => this.getInfo(e, "weight")}/>
+                            <Input placeholder="Heart Disease" onChange={(e) => this.getInfo(e, "heartDisease")}/>
+                        </InputGroup>
+                        <InputGroup>
+                            <Input placeholder="Blood Pressure" onChange={(e) => this.getInfo(e, "highbPressure")}/>
+                            <Input placeholder="Stroke" onChange={(e) => this.getInfo(e, "stroke")}/>
+                            <Input placeholder="pacemaker" onChange={(e) => this.getInfo(e, "pacemaker")}/>
+                            <Input placeholder="respiratoryDisease" onChange={(e) => this.getInfo(e, "respiratoryDisease")}/>
+                        </InputGroup>
+                        <InputGroup>
+                            <Input placeholder="seizures" onChange={(e) => this.getInfo(e, "seizures")}/>
+                            <Input placeholder="liverDisease" onChange={(e) => this.getInfo(e, "liverDisease")}/>
+                            <Input placeholder="kidneyDisease" onChange={(e) => this.getInfo(e, "kidneyDisease")}/>
+                            <Input placeholder="diabetes" onChange={(e) => this.getInfo(e, "diabetes")}/>
+                        </InputGroup>
+                        <InputGroup>
+                            <Input placeholder="cancer" onChange={(e) => this.getInfo(e, "cancer")}/>
+                            <Input placeholder="allergies" onChange={(e) => this.getInfo(e, "allergies")}/>
+                            <Input placeholder="alcohol" onChange={(e) => this.getInfo(e, "alcohol")}/>
+                            <Input placeholder="smoke" onChange={(e) => this.getInfo(e, "smoke")}/>
+                        </InputGroup>
                         <InputGroupAddon addonType="append">
                             <Button outline color="warning" onClick={() => this.updateMedicalHistory()}>Add</Button>
                         </InputGroupAddon>
