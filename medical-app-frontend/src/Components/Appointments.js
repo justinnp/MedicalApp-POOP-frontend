@@ -106,6 +106,7 @@ class Appointments extends Component {
 			date: this.state.date,
 			time: this.state.time,
 			notes: this.state.notes,
+			id: this.state.id,
 			seenBy: '',
 			createdBy: null,
 			checkedIn: false,
