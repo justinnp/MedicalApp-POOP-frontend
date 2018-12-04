@@ -10,7 +10,7 @@ import ViewPrescriptions from './Components/ViewPrescriptions';
 import AddPrescription from './Components/AddPrescription';
 import ViewMedicalHistory from './Components/ViewMedicalHistory';
 import AddMedicalHistory from './Components/AddMedicalHistory';
-
+import Appointments from './Components/Appointments';
 
 
 const App = () => {
@@ -28,6 +28,7 @@ const App = () => {
           <Route path="/add_prescription/:id" component={AddPrescription} />
           <Route path="/view_medicalhistory/:id" component={ViewMedicalHistory} />
           <Route path="/add_medicalhistory/:id" component={AddMedicalHistory} />
+		      <Route path="/appointments/:id" component={Appointments} />
         </Switch>
       </BrowserRouter>
     );

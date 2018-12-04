@@ -54,10 +54,12 @@ class Home extends Component {
                         </Card>
                     </Col>
                     <Col sm={4} className="mb-4">
-                        <Card body>
-                            <IoMdCalendar size={42} color='#3763CA' style={{margin: 'auto'}}/>
-                            <CardTitle className="mt-3">Appointments</CardTitle>
-                        </Card>
+						<Link to={"/appointments/"+this.state.id}>
+							<Card body>
+								<IoMdCalendar size={42} color='#3763CA' style={{margin: 'auto'}}/>
+								<CardTitle className="mt-3">Appointments</CardTitle>
+							</Card>
+						</Link>
                     </Col>
                     <Col sm={4} className="mb-4">
                         <Card body>
