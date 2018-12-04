@@ -40,10 +40,12 @@ class Home extends Component {
                         </Link>
                     </Col>
                     <Col sm={4} className="mb-4">
+                      <Link to={"/view_insurance/"+this.state.id}>
                         <Card body>
                             <IoIosMedkit size={42} color='#04617C' style={{margin: 'auto'}}/>
                             <CardTitle className="mt-3">Insurance Information</CardTitle>
                         </Card>
+                      </Link>
                     </Col>
                 </Row>
                 <Row>
