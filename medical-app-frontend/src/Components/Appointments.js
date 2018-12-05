@@ -17,11 +17,11 @@ class Appointments extends Component {
 			id: null
 		}
 	}
-	
+/*
 	componentWillMount(){
 		
 		let id = this.props.match.params.id;
-        fetch(url+'/byPatient'+id)
+        fetch(url+'/search'+id)
 		.then(response => response.json())
         .then(responseData =>{
             const tmpAppointments = [];
@@ -47,11 +47,15 @@ class Appointments extends Component {
             console.log('Error fetching and parsing data.', error);
         });
 	}
-	
+*/	
 	componentDidMount() {
-      setInterval(() => {
+      this.grabData();
+    }
+	
+	grabData(){
+	
 		let id = this.props.match.params.id;
-        fetch(url+'/byPatient'+id)
+        fetch(url+'/search'+id)
         .then(response => response.json())
         .then(responseData =>{
             const tmpAppointments = [];
@@ -62,7 +66,6 @@ class Appointments extends Component {
 					time: responseData[key].time,
                     seenBy: responseData[key].seenBy,
 					createdBy: responseData[key].createdBy,
-					id: responseData[key]._id,
 					notes: responseData[key].notes,
                     checkedIn: responseData[key].checkedIn,
                     late: responseData[key].late,
@@ -70,23 +73,16 @@ class Appointments extends Component {
                 tmpAppointments.push(appointment);
             }
 
-            var old = this.state.appointments
-            // for(key in old) {
-            //   if(old[key].current !== tmpPatients[key].current) {
-            //     tmpGarages[key].didUpdate = true;
-            //   }
-            // }
-
             this.setState({
-                appointments: tmpAppointments
+                appointments: tmpAppointments,
+				id: id
             })
 
         })
         .catch(error => {
             console.log('Error fetching and parsing data.', error);
         });
-      }, 10000);
-    }
+	}
 	
 	showAddAlert(){
       if(this.state.successAdd){
