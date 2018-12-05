@@ -142,7 +142,7 @@ class Appointments extends Component {
 		return(
 		
 			<div class="landingPage" style={{overflow: "hidden"}}>
-                <ToolBar/>
+                <ToolBar home={true}/>
 				<Col sm={4} className="mb-4">
 					<AppointmentList appointments={this.state.appointments}/>
 				</Col>

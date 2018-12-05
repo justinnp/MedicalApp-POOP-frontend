@@ -6,7 +6,7 @@ import '../landingpage.css';
 const Landing = () => {
     return (
         <div className="landingPage">
-            <ToolBar login={false} register={false}/>
+            <ToolBar login={true} register={true} loggedIn={true}/>
             <h1 className="logoTitle" style={{fontFamily: "Sans-Serif"}}>Patient Connect <span><IoIosPeople size={56}/></span></h1>
         </div>
     )

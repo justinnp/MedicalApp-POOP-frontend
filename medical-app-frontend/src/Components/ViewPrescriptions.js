@@ -62,11 +62,35 @@ class ViewPrescriptions extends Component {
                                 <Card body className="mx-2 my-3" key={prescription.id}>
                                     <CardTitle>
                                         <div className="d-flex">
-                                            <div className="blink_me">{prescription.name}</div> &nbsp;
-                                            <div className="blink_me_again">{prescription.dose}</div>
+                                            <div className="blink_me">Prescription Name: {prescription.name}</div>
                                             <div className="ml-auto">
                                                 <Button outline color="warning" onClick={()=>this.deletePrescription(prescription._id)}>Delete</Button>
                                             </div>
+                                        </div>
+                                    </CardTitle>
+                                    <CardTitle>
+                                        <div className="d-flex">
+                                            <div className="blink_me">Quantity Prescribed: {prescription.quantity}</div>
+                                        </div>
+                                    </CardTitle>
+                                    <CardTitle>
+                                        <div className="d-flex">
+                                            <div className="blink_me">Instructions: {prescription.instructions}</div>
+                                        </div>
+                                    </CardTitle>
+                                    <CardTitle>
+                                        <div className="d-flex">
+                                            <div className="blink_me">Details: {prescription.details}</div>
+                                        </div>
+                                    </CardTitle>
+                                    <CardTitle>
+                                        <div className="d-flex">
+                                            <div className="blink_me">Number of Refills: {prescription.numRefills}</div>
+                                        </div>
+                                    </CardTitle>
+                                    <CardTitle>
+                                        <div className="d-flex">
+                                            <div className="blink_me">Expiration Date: {prescription.expirationDate}</div>
                                         </div>
                                     </CardTitle>
                                 </Card>
@@ -77,7 +101,7 @@ class ViewPrescriptions extends Component {
         )
                 return(
                     <div className="landingPage" style={{overflow: "hidden"}}>
-                        <ToolBar home={true} register={true} login={true} viewPrescription={true} id={this.state.id}/>
+                        <ToolBar home={true} addPrescription={true} id={this.state.id}/>
                         <div className="prescriptionList">
                             {prescriptionsList}
                         </div>

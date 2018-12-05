@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, CardTitle, CardText, Progress, Navbar, Row, UncontrolledAlert, Form, FormGroup, Input, InputGroup, InputGroupAddon, Button, ListGroup, ListGroupItem} from 'reactstrap';
+import {Col, Card, CardTitle, CardText, Progress, Navbar, Row, UncontrolledAlert, Form, FormGroup, Input, InputGroup, InputGroupAddon, Button, ListGroup, ListGroupItem} from 'reactstrap';
 import ToolBar from './ToolBar';
 import '../landingpage.css';
 
@@ -66,23 +66,43 @@ addPrescription(){
     render() {
         return(
             <div className="landingPage" style={{overflow: "hidden"}}>
-            <ToolBar home={true} register={true} login={true} addPrescription={true} id={this.state.id}/>
+            <ToolBar home={true} viewPrescription={true} id={this.state.id}/>
             <Form className="w-50 mx-auto mt-5">
                 <FormGroup className="my-5">
                         <Input placeholder="Prescription Name" onChange={(e) => this.getInfo(e, "addPreName")}/>
-                        <InputGroup>
+                </FormGroup>
+                <Row>
+                    <Col md={4}>
+                        <FormGroup>
                             <Input placeholder="Quantity" onChange={(e) => this.getInfo(e, "addQuantity")}/>
-                            <Input placeholder="Dose" onChange={(e) => this.getInfo(e, "addDose")}/>
-                            <Input placeholder="Rx" onChange={(e) => this.getInfo(e, "addRx")}/>
-                        </InputGroup>
+                        </FormGroup>
+                    </Col>
+                    <Col md={4}>
+                        <FormGroup>
+                                    <Input placeholder="Dose" onChange={(e) => this.getInfo(e, "addDose")}/>
+                        </FormGroup>
+                    </Col>
+                    <Col md={4}>
+                        <FormGroup>
+                                    <Input placeholder="Rx" onChange={(e) => this.getInfo(e, "addRx")}/>
+                        </FormGroup>
+                    </Col>
+                </Row>
+                <FormGroup>
                         <Input placeholder="Instructions" onChange={(e) => this.getInfo(e, "addInstructions")}/>
+                </FormGroup>
+                <FormGroup>
                         <Input placeholder="Details" onChange={(e) => this.getInfo(e, "addDetails")}/>
-                        <InputGroup>
+                </FormGroup>
+                <FormGroup>
                             <Input placeholder="Number of Refills" onChange={(e) => this.getInfo(e, "addNumRefills")}/>
+                </FormGroup>
+                <FormGroup>
                             <Input placeholder="Refill Date" onChange={(e) => this.getInfo(e, "addRefillDate")}/>
-                        </InputGroup>
+                </FormGroup>
+                <FormGroup>
                         <InputGroupAddon addonType="append">
-                            <Button outline color="warning" onClick={() => this.addPrescription()}>Add</Button>
+                                <Button outline color="warning" onClick={() => this.addPrescription()}>Add Prescription</Button>
                         </InputGroupAddon>
                 </FormGroup>
             </Form>

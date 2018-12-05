@@ -21,55 +21,23 @@ class ToolBar extends Component {
         return (
             <div>
                   <Navbar dark>
-                    {this.props.loggedIn ?
-                        <NavbarBrand style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
-                        : <NavbarBrand href="/" style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
+                    {this.props.loggedIn ?                     
+                        <NavbarBrand href="/" style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
+                        : <NavbarBrand style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
                     }
                     <NavbarToggler onClick={this.toggleNav} className="mr-2" />
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
                             {
-                                this.props.register ?
-                                null :
+                                this.props.login ? 
                                 <NavItem>
                                     <NavLink href="/login">Log In</NavLink>
-                                </NavItem>
+                                </NavItem> : null
                             }
                             {
-                                this.props.login ?
-                                null :
+                                this.props.register ? 
                                 <NavItem>
                                     <NavLink href="/register">Register</NavLink>
-                                </NavItem>
-                            }
-                            {
-                                this.props.loggedIn ?
-                                <NavItem>
-                                    <NavLink href="/">Log Out</NavLink>
-                                </NavItem> : null
-                            }
-                            {
-                                this.props.viewPrescription ?
-                                <NavItem>
-                                    <NavLink href={"/add_prescription/"+this.props.id}>Add Prescription</NavLink>
-                                </NavItem> : null
-                            }
-                            {
-                                this.props.addPrescription ?
-                                <NavItem>
-                                    <NavLink href={"/view_prescriptions/"+this.props.id}>View Prescriptions</NavLink>
-                                </NavItem> : null
-                            }
-                            {
-                                this.props.updateInsurance ?
-                                <NavItem>
-                                    <NavLink href={"/update_insurance/"+this.props.id}>Update Insurance</NavLink>
-                                </NavItem> : null
-                            }
-                            {
-                                this.props.updateMedicalHistory ?
-                                <NavItem>
-                                    <NavLink href={"/update_medicalhistory/"+this.props.id}>Update Medical History</NavLink>
                                 </NavItem> : null
                             }
                             {
@@ -77,6 +45,36 @@ class ToolBar extends Component {
                                 <NavItem>
                                     <NavLink href={"/home/"+this.props.id}>Home</NavLink>
                                 </NavItem> : null
+                            }
+                            {
+                                this.props.addPrescription ?
+                                <NavItem>
+                                    <NavLink href={"/add_prescription/"+this.props.id}>Add Prescription</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.viewPatients ?
+                                <NavItem>
+                                    <NavLink href={"/view_patients"}>View Patients</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.viewDoctors ?
+                                <NavItem>
+                                    <NavLink href={"/view_doctors"}>View Doctors</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.viewPrescription ?
+                                <NavItem>
+                                    <NavLink href={"/view_prescriptions/"+this.props.id}>View Prescriptions</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.loggedIn ? 
+                                null : <NavItem>
+                                    <NavLink href="/">Log Out</NavLink>
+                                </NavItem>
                             }
                         </Nav>
                     </Collapse>
@@ -89,7 +87,11 @@ class ToolBar extends Component {
 ToolBar.propTypes = {
     login: PropTypes.bool,
     register: PropTypes.bool,
-    loggedIn: PropTypes.bool
+    loggedIn: PropTypes.bool,
+    home: PropTypes.bool,
+    viewPrescriptions: PropTypes.bool,
+    viewPatients: PropTypes.bool,
+    addPrescriptions: PropTypes.bool
 }
 
 export default ToolBar;

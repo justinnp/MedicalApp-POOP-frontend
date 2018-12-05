@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col, Form, FormGroup, Label, Input, Container, Button} from 'reactstrap';
+import {Alert, Row, Col, Form, FormGroup, Label, Input, Container, Button} from 'reactstrap';
 import PropTypes from 'prop-types';
 import ToolBar from './ToolBar';
 import '../landingpage.css';
@@ -15,6 +15,7 @@ class Register extends Component {
             password: '',
             ss:'',
             doctor: false,
+            added: false
         }
         this.getInfo = this.getInfo.bind(this);
     }
@@ -26,34 +27,28 @@ class Register extends Component {
     }
 
     createUser(){
-        if(this.props.isPatient){ 
-        // Register Patient
-            var patientToAdd = {
+        if(this.props.isAdmin){ 
+        // Register Admin
+            var adminToAdd = {
                 username: this.state.username,
                 password: this.state.password,
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
-                dob: null,
-                ss: '587451234',
-                email: 'pgon@yahoo.com',
-                phone: '4072581234',
-                address: '6001 Destination Parkway',
-                insurance: false,
                 accountCreated: Date.now(),
                 __v: 0
             }
-            fetch('http://127.0.0.1:5000/api/patients', {
+            fetch('http://127.0.0.1:5000/api/admins', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(patientToAdd)
+                body: JSON.stringify(adminToAdd)
             })
             .then(response => response.json())
             .then(responseData => {
                 if(responseData.success){
                   this.setState({
-                    successAdd: true
+                    added: true
                   })
                 }
             })
@@ -81,7 +76,7 @@ class Register extends Component {
         .then(responseData => {
             if(responseData.success){
               this.setState({
-                successAdd: true
+                added: true
               })
             }
         })
@@ -89,11 +84,16 @@ class Register extends Component {
     }
        
     }
+    added(){
+        if(this.state.added){
+            return(<Alert> Successfully Registered!</Alert>);
+        }else return null
+    }
 
     render() {
         return (
             <div class="landingPage">  
-                <ToolBar login={true} register={false}/>
+                <ToolBar login={true} register={true} loggedIn={true}/>
                 <Container style={{width:'40vw'}} className="mt-5">
                     <Form>
                             <Row>
@@ -110,19 +110,12 @@ class Register extends Component {
                                     </FormGroup>
                                 </Col>
                             </Row>
-                        {
-                            this.props.isPatient ? 
-                            <FormGroup>
-                                <Label for="examplePassword">Doctor's Last Name</Label>
-                                <Input onChange={(e) => this.getInfo(e, "username")} placeholder="i.e. Martinez" type="password" name="username"/>
-                            </FormGroup> : null
-                        }
                             <FormGroup>
                                 <Label for="examplePassword">Username</Label>
                                 <Input onChange={(e) => this.getInfo(e, "username")} type="password" name="username"/>
                             </FormGroup>
                         {
-                            this.props.isPatient ?
+                            this.props.isAdmin ?
                             null :
                             <FormGroup>
                                 <Label for="examplePassword">Practice</Label>
@@ -134,8 +127,9 @@ class Register extends Component {
                             <Input onChange={(e) => this.getInfo(e, "password")} type="password" name="password"/>
                         </FormGroup>
                         <Button color="danger" block onClick={() => this.createUser()}>
-                            Create {this.props.isPatient ? 'Patient' : 'Practice'}
+                            Create {this.props.isAdmin ? 'Admin' : 'Practice'}
                         </Button>
+                        {this.added()}
                     </Form>
                 </Container>
             </div>
