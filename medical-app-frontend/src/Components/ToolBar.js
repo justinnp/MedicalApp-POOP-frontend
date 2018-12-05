@@ -21,7 +21,7 @@ class ToolBar extends Component {
         return (
             <div>
                   <Navbar dark>
-                    {this.props.loggedIn ?                     
+                    {this.props.loggedIn ?
                         <NavbarBrand style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
                         : <NavbarBrand href="/" style={{color:"white"}}className="mr-auto">Patient Connect</NavbarBrand>
                     }
@@ -29,21 +29,21 @@ class ToolBar extends Component {
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
                             {
-                                this.props.register ? 
+                                this.props.register ?
                                 null :
                                 <NavItem>
                                     <NavLink href="/login">Log In</NavLink>
                                 </NavItem>
                             }
                             {
-                                this.props.login ? 
+                                this.props.login ?
                                 null :
                                 <NavItem>
                                     <NavLink href="/register">Register</NavLink>
                                 </NavItem>
                             }
                             {
-                                this.props.loggedIn ? 
+                                this.props.loggedIn ?
                                 <NavItem>
                                     <NavLink href="/">Log Out</NavLink>
                                 </NavItem> : null
@@ -58,6 +58,18 @@ class ToolBar extends Component {
                                 this.props.addPrescription ?
                                 <NavItem>
                                     <NavLink href={"/view_prescriptions/"+this.props.id}>View Prescriptions</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.updateInsurance ?
+                                <NavItem>
+                                    <NavLink href={"/update_insurance/"+this.props.id}>Update Insurance</NavLink>
+                                </NavItem> : null
+                            }
+                            {
+                                this.props.updateMedicalHistory ?
+                                <NavItem>
+                                    <NavLink href={"/update_medicalhistory/"+this.props.id}>Update Medical History</NavLink>
                                 </NavItem> : null
                             }
                             {

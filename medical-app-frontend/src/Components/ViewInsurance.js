@@ -41,7 +41,7 @@ class ViewInsurance extends Component {
     render() {
                 return(
                     <div className="landingPage" style={{overflow: "hidden"}}>
-                        <ToolBar home={true} register={true} login={true} viewPrescription={false} id={this.state.id}/>
+                        <ToolBar home={true} register={true} login={true} updateInsurance={true} id={this.state.id}/>
                         <Card body>
                             <CardTitle>
                                 <div className="d-flex">

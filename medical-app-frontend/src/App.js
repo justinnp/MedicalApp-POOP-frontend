@@ -13,6 +13,9 @@ import AddMedicalHistory from './Components/AddMedicalHistory';
 import Appointments from './Components/Appointments';
 import ViewInsurance from './Components/ViewInsurance';
 import AddInsurance from './Components/AddInsurance';
+import UpdateInsurance from './Components/UpdateInsurance';
+import UpdateMedicalHistory from './Components/UpdateMedicalHistory';
+
 
 
 
@@ -34,6 +37,8 @@ const App = () => {
 		      <Route path="/appointments/:id" component={Appointments} />
           <Route path="/view_insurance/:id" component={ViewInsurance} />
           <Route path="/add_insurance/:id" component={AddInsurance} />
+          <Route path="/update_insurance/:id" component={UpdateInsurance} />
+          <Route path="/update_medicalhistory/:id" component={UpdateMedicalHistory} />
         </Switch>
       </BrowserRouter>
     );
