@@ -14,7 +14,7 @@ const Patient = (props) => {
     var deletion = props.id;
     var url = 'https://www.google.com';
     function deletePatient(){
-        fetch('http://127.0.0.1:5000/api/patients/'+deletion,{
+        fetch('https://med-data-92861.herokuapp.com/api/patients/'+deletion,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

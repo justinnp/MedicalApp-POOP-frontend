@@ -5,21 +5,21 @@ import AppointmentList from './AppointmentList';
 import '../landingpage.css';
 
 
-const url = 'http://127.0.0.1:5000/api/appointments'
+const url = 'https://med-data-92861.herokuapp.com/api/appointments'
 
 
 class Appointments extends Component {
 	constructor(props){
 		super(props)
 		this.state ={
-			
+
 			appointments: [],
 			id: null
 		}
 	}
 /*
 	componentWillMount(){
-		
+
 		let id = this.props.match.params.id;
         fetch(url+'/search'+id)
 		.then(response => response.json())
@@ -47,13 +47,13 @@ class Appointments extends Component {
             console.log('Error fetching and parsing data.', error);
         });
 	}
-*/	
+*/
 	componentDidMount() {
       this.grabData();
     }
-	
+
 	grabData(){
-	
+
 		let id = this.props.match.params.id;
         fetch(url+'/search'+id)
         .then(response => response.json())
@@ -83,7 +83,7 @@ class Appointments extends Component {
             console.log('Error fetching and parsing data.', error);
         });
 	}
-	
+
 	showAddAlert(){
       if(this.state.successAdd){
         return(
@@ -94,22 +94,21 @@ class Appointments extends Component {
       }
       else return null
     }
-	
+
 	addAppointment(){
-	
+
 		var appointmentToAdd = {
-		
+			patient: this.state.id,
 			date: this.state.date,
 			time: this.state.time,
 			notes: this.state.notes,
-			id: this.state.id,
 			seenBy: '',
 			createdBy: null,
 			checkedIn: false,
 			late: false,
 			__v: 0
 		}
-		fetch('http://127.0.0.1:5000/api/appointments', {
+		fetch('https://med-data-92861.herokuapp.com/api/appointments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -126,22 +125,22 @@ class Appointments extends Component {
         })
         .catch(error => console.error('Error:', error));
 	}
-	
+
 	getInfo = (e, stateField) => {
         this.setState({
             [stateField]: e.target.value
         });
     }
-	
+
 	render() {
-		
+
 		return(
-		
+
 			<div class="landingPage" style={{overflow: "hidden"}}>
                 <ToolBar home={true}/>
-				<Col sm={4} className="mb-4">
+				<Row sm={4} className="mb-4">
 					<AppointmentList appointments={this.state.appointments}/>
-				</Col>
+				</Row><br/>
 				<Form>
 					<Row>
 						<Col sm={4} className="mb-4">
@@ -150,16 +149,10 @@ class Appointments extends Component {
 								<Input type="date" name="date" placeholder="date placeholder" onChange={(e) => this.getInfo(e, "date")}/>
 							</FormGroup>
 						</Col>
-						<Col sm={4} className="mb-4">
-							<FormGroup>
-								<Label>Time</Label>
-								<Input type="time" name="time" placeholder="time placeholder" onChange={(e) => this.getInfo(e, "time")}/>
-							</FormGroup>
-						</Col>
 					</Row>
 					<FormGroup>
-						<Label>Notes</Label>
-						<Input type="textarea" name="notes" onChange={(e) => this.getInfo(e, "notes")}/>
+						<Label>Time</Label>
+						<Input type="text" name="notes" onChange={(e) => this.getInfo(e, "notes")}/>
 					</FormGroup>
 					<Button color="secondary" onClick={() => this.addAppointment()}>Submit</Button>
 				</Form>

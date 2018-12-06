@@ -57,7 +57,7 @@ updateMedicalHistory(){
               dateUpdated: null,
               updatedBy: null,
             }
-            fetch('http://127.0.0.1:5000/api/medicalHistory', {
+            fetch('https://med-data-92861.herokuapp.com/api/medicalHistory', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

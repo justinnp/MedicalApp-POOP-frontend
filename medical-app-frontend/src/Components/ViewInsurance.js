@@ -4,7 +4,7 @@ import ToolBar from './ToolBar';
 import '../landingpage.css';
 
 //byPatient:${this.props.location.state.patientId}
-var url = 'http://127.0.0.1:5000/api/insurances'
+var url = 'https://med-data-92861.herokuapp.com/api/insurances'
 class ViewInsurance extends Component {
     state = {
         insurance: [],

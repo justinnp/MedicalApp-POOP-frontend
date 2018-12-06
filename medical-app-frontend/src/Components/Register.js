@@ -37,7 +37,7 @@ class Register extends Component {
                 accountCreated: Date.now(),
                 __v: 0
             }
-            fetch('http://127.0.0.1:5000/api/admins', {
+            fetch('https://med-data-92861.herokuapp.com/api/admins', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ class Register extends Component {
             accountCreated: Date.now(),
             __v: 0
         }
-        fetch('http://127.0.0.1:5000/api/doctor', {
+        fetch('https://med-data-92861.herokuapp.com/api/doctor', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

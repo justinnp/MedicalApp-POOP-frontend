@@ -5,12 +5,10 @@ import {Card, CardTitle, CardText, Progress, Button, Row, Col, ListGroup, ListGr
 
 
 const Appointment = (props) => {
-	
-	this.setState({popoverOpen: false});
-	
+
 	var deletion = props.id
 	function deleteAppointment(){
-        fetch('http://127.0.0.1:5000/api/appointments/'+deletion,{
+        fetch('https://med-data-92861.herokuapp.com/api/appointments/'+deletion,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,36 +25,24 @@ const Appointment = (props) => {
         })
         .catch(error => console.error('Error:', error));
     }
-	
+
 	function toggle() {
-	
-		this.setState({ popoverOpen: !this.state.popoverOpen });
+			toggle = !toggle;
 	}
-	
-	return (
-	
-		<Row>
-			<Col sm="3">
-				<ListGroup>
-					<ListGroupItem>{props.date}</ListGroupItem>
-				</ListGroup>
-			</Col>
-			<Col sm="3">
-				<ListGroup>
-					<ListGroupItem>{props.time}</ListGroupItem>
-				</ListGroup>
-			</Col>
-			<Col sm="3">
-				<Button id="Notes" color="secondary" onClick={this.toggle}>Notes</Button>
-				<Popover placement="bottom" isOpen={this.state.popoverOpen} target="Notes" toggle={this.toggle}>
-					<PopoverHeader>Notes</PopoverHeader>
-					<PopoverBody>{props.notes}</PopoverBody>
-				</Popover>
-			</Col>
-			<Col sm="3">
-				<Button color="secondary" onClick={() => deleteAppointment()}>Delete</Button>
-			</Col>
-		</Row>
+
+	return(
+
+		<Card body className="mx-2 my-3">
+				<CardTitle>
+						<div className="d-flex">
+								<div class="blink_me">Date: {(props.date).substring(0,10)}</div> &nbsp;
+								<div class="blink_me_again">Time: {props.notes}</div> <br/>
+								<div className="ml-auto">
+										<Button color="secondary" onClick={() => deleteAppointment()}>Delete</Button>
+								</div>
+						</div>
+				</CardTitle>
+		</Card>
 	);
 }
 

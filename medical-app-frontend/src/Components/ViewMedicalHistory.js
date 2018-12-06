@@ -4,7 +4,7 @@ import ToolBar from './ToolBar';
 import '../landingpage.css';
 
 //byPatient:${this.props.location.state.patientId}
-var url = 'http://127.0.0.1:5000/api/medicalHistory'
+var url = 'https://med-data-92861.herokuapp.com/api/medicalHistory'
 class ViewMedicalHistory extends Component {
     state = {
         medicalhistory: [],
@@ -30,7 +30,7 @@ class ViewMedicalHistory extends Component {
 
         deleteMedicalHistory(deletion){
             console.log(deletion);
-            fetch('http://127.0.0.1:5000/api/medicalHistory/'+deletion,{
+            fetch('https://med-data-92861.herokuapp.com/api/medicalHistory/'+deletion,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

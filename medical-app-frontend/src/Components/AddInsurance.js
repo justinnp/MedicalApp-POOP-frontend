@@ -34,7 +34,7 @@ updateInsurance(){
               ER: 1,
               dateEffective: this.state.dateEffective,
             }
-            fetch('http://127.0.0.1:5000/api/insurances', {
+            fetch('https://med-data-92861.herokuapp.com/api/insurances', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

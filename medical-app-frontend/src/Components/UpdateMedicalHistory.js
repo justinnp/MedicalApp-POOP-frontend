@@ -21,7 +21,7 @@ componentDidMount(){
         id: id
     })
 
-    fetch('http://127.0.0.1:5000/api/medicalhistory/'+id)
+    fetch('https://med-data-92861.herokuapp.com/api/medicalhistory/'+id)
         .then(response => response.json())
         .then(responseData =>{
             console.log(responseData[0]._id);
@@ -58,7 +58,7 @@ updatemedicalhistory(){
               updatedBy: null,
             }
 
-            fetch('http://127.0.0.1:5000/api/medicalhistory/'+this.state.medicalhistory_id, {
+            fetch('https://med-data-92861.herokuapp.com/api/medicalhistory/'+this.state.medicalhistory_id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

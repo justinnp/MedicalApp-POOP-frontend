@@ -34,7 +34,7 @@ class Login extends Component {
         }else{
                 admin = 'admins'
         }
-        fetch('http://127.0.0.1:5000/api/'+admin+'/login', {
+        fetch('https://med-data-92861.herokuapp.com/api/'+admin+'/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

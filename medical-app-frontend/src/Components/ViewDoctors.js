@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import '../landingpage.css';
 
 //byPatient:${this.props.location.state.patientId}
-var url = 'http://127.0.0.1:5000/api/prescriptions'
+var url = 'https://med-data-92861.herokuapp.com/api/prescriptions'
 class ViewDoctors extends Component {
     state = {
         doctors: [],
@@ -16,7 +16,7 @@ class ViewDoctors extends Component {
     
         deleteDoctor(deletion){
             console.log(deletion);
-            fetch('http://127.0.0.1:5000/api/doctor/'+deletion,{
+            fetch('https://med-data-92861.herokuapp.com/api/doctor/'+deletion,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ class ViewDoctors extends Component {
 
     componentDidMount(){
         let id = this.props.match.params.id;
-        fetch('http://127.0.0.1:5000/api/doctor')
+        fetch('https://med-data-92861.herokuapp.com/api/doctor')
             .then(response => response.json())
             .then(responseData =>{
                 console.log(responseData);

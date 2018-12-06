@@ -4,7 +4,7 @@ import ToolBar from './ToolBar';
 import '../landingpage.css';
 
 //byPatient:${this.props.location.state.patientId}
-var url = 'http://127.0.0.1:5000/api/prescriptions'
+var url = 'https://med-data-92861.herokuapp.com/api/prescriptions'
 class AddPrescription extends Component {
         state = {
             id: null,
@@ -41,7 +41,7 @@ addPrescription(){
                 prescribedBy:this.state.id,
                 __v: 0
             }
-            fetch('http://127.0.0.1:5000/api/prescriptions', {
+            fetch('https://med-data-92861.herokuapp.com/api/prescriptions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

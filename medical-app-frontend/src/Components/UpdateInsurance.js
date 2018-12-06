@@ -21,7 +21,7 @@ componentDidMount(){
         id: id
     })
 
-    fetch('http://127.0.0.1:5000/api/insurances/'+id)
+    fetch('https://med-data-92861.herokuapp.com/api/insurances/'+id)
         .then(response => response.json())
         .then(responseData =>{
             console.log(responseData[0]._id);
@@ -47,7 +47,7 @@ updateInsurance(){
               dateEffective: this.state.dateEffective,
             }
 
-            fetch('http://127.0.0.1:5000/api/insurances/'+this.state.insurance_id, {
+            fetch('https://med-data-92861.herokuapp.com/api/insurances/'+this.state.insurance_id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

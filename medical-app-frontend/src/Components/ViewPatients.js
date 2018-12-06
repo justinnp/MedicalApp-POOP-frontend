@@ -5,7 +5,7 @@ import ToolBar from './ToolBar';
 import '../landingpage.css';
 
 
-const url = 'http://127.0.0.1:5000/api/patients'
+const url = 'https://med-data-92861.herokuapp.com/api/patients'
 class ViewPatients extends Component {
     constructor(props) {
         super(props);
@@ -96,7 +96,7 @@ class ViewPatients extends Component {
             accountCreated: null,
             __v: 0
         }
-        fetch('http://127.0.0.1:5000/api/patients', {
+        fetch('https://med-data-92861.herokuapp.com/api/patients', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
