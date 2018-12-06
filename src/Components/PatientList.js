@@ -13,6 +13,7 @@ const PatientList = (props) => {
                             id={patient.id}
                             fname={patient.fname}
                             lname={patient.lname}
+                            refresh = {this.props.refresh}
                         />
                     </Col>
             )}

@@ -50,10 +50,10 @@ class ViewDoctors extends Component {
     }
 
     // () => deletePrescription()
-    deleted = (e) =>{
+    deleted(){
         if(this.state.deleted){
-            return(<Alert>Successfully Deleted</Alert>)
-        }
+            this.componentDidMount()
+        }else return null
     }
 
     render() {
@@ -72,7 +72,7 @@ class ViewDoctors extends Component {
                                             </div>
                                         </div>
                                     </CardTitle>
-                                    {this.deleted}
+                                    {this.deleted()}
                                 </Card>
                     );
                 })

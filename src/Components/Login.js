@@ -34,6 +34,8 @@ class Login extends Component {
         }else{
                 admin = 'admins'
         }
+        console.log(this.state.password)
+        // https://med-data-92861.herokuapp.com/api/
         fetch('https://med-data-92861.herokuapp.com/api/'+admin+'/login', {
             method: 'POST',
             headers: {
@@ -42,6 +44,7 @@ class Login extends Component {
             body: JSON.stringify(doctor)
         })
         .then(response =>{
+            console.log(response)
             if(response.status===200){
                 // UserName and Password Matched
                 console.log(response)

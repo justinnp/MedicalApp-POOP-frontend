@@ -74,11 +74,9 @@ class Register extends Component {
         })
         .then(response => response.json())
         .then(responseData => {
-            if(responseData.success){
               this.setState({
                 added: true
               })
-            }
         })
         .catch(error => console.error('Error:', error));
     }

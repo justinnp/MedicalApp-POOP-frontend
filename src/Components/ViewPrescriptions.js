@@ -12,7 +12,8 @@ class ViewPrescriptions extends Component {
         addPreName: null,
         addQuantity:null,
         addDose:null,
-        addRefillDate:null
+        addRefillDate:null,
+        deleted: false
     }
 
     
@@ -26,12 +27,9 @@ class ViewPrescriptions extends Component {
             })
             .then(response => response.json())
             .then(responseData => {
-              if(responseData.success){
                 this.setState({
-                  successDelete: true
+                  deleted: true
                 })
-                window.location.reload();
-              }
             })
             .catch(error => console.error('Error:', error));
         }
@@ -53,6 +51,11 @@ class ViewPrescriptions extends Component {
     }
 
     // () => deletePrescription()
+    deleted(){
+        if(this.state.deleted){
+            this.componentDidMount()
+        }else return null
+    }
 
     render() {
         const {prescriptions} = this.state;
@@ -65,6 +68,7 @@ class ViewPrescriptions extends Component {
                                             <div className="blink_me">Prescription Name: {prescription.name}</div>
                                             <div className="ml-auto">
                                                 <Button outline color="warning" onClick={()=>this.deletePrescription(prescription._id)}>Delete</Button>
+                                                {this.deleted()}
                                             </div>
                                         </div>
                                     </CardTitle>

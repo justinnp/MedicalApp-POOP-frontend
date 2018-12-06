@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Card, CardTitle, CardText, Progress, Navbar, Row, UncontrolledAlert, Form, FormGroup, Input, InputGroup, InputGroupAddon, Button, ListGroup, ListGroupItem} from 'reactstrap';
+import {Col, Alert, Card, CardTitle, CardText, Progress, Navbar, Row, UncontrolledAlert, Form, FormGroup, Input, InputGroup, InputGroupAddon, Button, ListGroup, ListGroupItem} from 'reactstrap';
 import ToolBar from './ToolBar';
 import '../landingpage.css';
 
@@ -17,6 +17,7 @@ class AddPrescription extends Component {
             addNumRefills:null,
             addRefillDate:null,
             addExpirationDate:null,
+            added: false
         }
 componentDidMount(){
     let id = this.props.match.params.id;
@@ -50,9 +51,9 @@ addPrescription(){
             })
             .then(response => response.json())
             .then(responseData => {
-                if(responseData.success){
-                  console.log(responseData);
-                }
+                this.setState({
+                    added:true
+                })
             })
             .catch(error => console.error('Error:', error));
             
@@ -61,6 +62,11 @@ addPrescription(){
         this.setState({
             [stateField]: e.target.value
         });
+    }
+    addedPrescription(){
+        if(this.state.added){
+            return(<Alert>Successfully Added!</Alert>)
+        } else return null
     }
 
     render() {
@@ -103,6 +109,7 @@ addPrescription(){
                 <FormGroup>
                         <InputGroupAddon addonType="append">
                                 <Button outline color="warning" onClick={() => this.addPrescription()}>Add Prescription</Button>
+                                {this.addedPrescription()}
                         </InputGroupAddon>
                 </FormGroup>
             </Form>

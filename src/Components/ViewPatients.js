@@ -115,13 +115,18 @@ class ViewPatients extends Component {
             [stateField]: e.target.value
         });
     }
+    deleted(){
+        if(this.state.deleted){
+            this.componentDidMount()
+        }else return null
+    }
 
     render() {
         return (
             <div class="landingPage" style={{overflow: "hidden"}}>
                 <ToolBar/>
                 <Row className="pt-5">
-                    <PatientList patients={this.state.patients}/>
+                    <PatientList patients={this.state.patients} refresh={this.deleted()}/>
                 </Row>
                 <Form className="w-50 mx-auto mt-5">
                   <FormGroup className="my-5">
